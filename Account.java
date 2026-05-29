@@ -2,17 +2,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-/**
- * ACCOUNT — Core data model.
- *
- * OOP concepts:
- *   - Encapsulation: all fields private; mutated only through controlled methods.
- *   - Composition: owns a List<Transaction> (has-a relationship).
- *
- * Responsibility: Store account state and expose safe mutation methods.
- * It does NOT validate business rules (e.g. sufficient funds) — that is ATM's job.
- */
 public class Account {
 
     private final String accountNumber;
