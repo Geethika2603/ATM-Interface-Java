@@ -16,9 +16,6 @@ public class Account {
         this.pin           = pin;
         this.balance       = initialBalance;
     }
-
-    // ── PIN authentication ────────────────────────────────────────────────────
-
     public boolean validatePin(String inputPin) {
         return this.pin.equals(inputPin);
     }
@@ -26,9 +23,6 @@ public class Account {
     public void changePin(String newPin) {
         this.pin = newPin;
     }
-
-    // ── Balance mutation ──────────────────────────────────────────────────────
-
     public void credit(double amount, String note) {
         balance += amount;
         history.add(new Transaction(Transaction.Type.DEPOSIT, amount, balance, note));
@@ -50,30 +44,18 @@ public class Account {
         history.add(new Transaction(Transaction.Type.TRANSFER_IN, amount, balance,
                 "From: " + fromAccount));
     }
-
-    // ── Getters ───────────────────────────────────────────────────────────────
-
     public String getAccountNumber() { return accountNumber; }
     public String getHolderName()    { return holderName; }
     public double getBalance()       { return balance; }
     /** Package-private: only Bank uses this for persistence. */
     String getPin()                  { return pin; }
-
-    /**
-     * Returns an unmodifiable view — callers cannot alter the history list directly.
-     */
     public List<Transaction> getHistory() {
         return Collections.unmodifiableList(history);
     }
-
-    /**
-     * Returns only the most recent N transactions.
-     */
     public List<Transaction> getRecentHistory(int n) {
         int from = Math.max(0, history.size() - n);
         return Collections.unmodifiableList(history.subList(from, history.size()));
     }
-
     @Override
     public String toString() {
         return String.format("Account[%s | %s | Balance: %.2f]",
