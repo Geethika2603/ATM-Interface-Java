@@ -54,10 +54,24 @@ A console-based ATM Management System developed using Java and Object-Oriented P
 ## Screenshots
 ### Welcome Screen
 ![Welcome Screen](screenshots/welcome.png)
+
 ### Main Menu
 ![Main Menu](screenshots/main-menu.png)
+
 ### Check Balance
 ![Check Balance](screenshots/check-balance.png)
+
+### Deposit Success
+![Deposit Success](screenshots/deposit-success.png)
+
+### Withdraw Success
+![Withdraw Success](screenshots/withdraw-success.png)
+
+### Transfer Success
+![Transfer Success](screenshots/transfer-success.png)
+
+### Transaction History
+![Transaction History](screenshots/transaction-history.png)
 ## Future Improvements
 - Database Integration using MySQL
 - GUI Version using Java Swing or JavaFX
