@@ -1,19 +1,4 @@
 
-/**
- * ATM — Session controller and business rule enforcer.
- *
- * OOP concepts:
- *   - Composition: holds references to Bank, current Account.
- *   - Single Responsibility: business rules & session flow only.
- *   - Abstraction: callers just call atm.startSession(); internals are hidden.
- *
- * Business rules enforced here (NOT in Account or Bank):
- *   - Max 3 PIN attempts before card lockout.
- *   - Minimum withdrawal: ₹100  (multiples of 100).
- *   - Maximum single withdrawal: ₹20,000.
- *   - Transfer destination must exist and differ from self.
- *   - New PIN must be exactly 4 digits.
- */
 public class ATM {
 
     // ── Configuration constants ───────────────────────────────────────────────
