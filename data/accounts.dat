@@ -1,0 +1,6 @@
+# ATM Account Data — DO NOT EDIT MANUALLY
+# Format: accountNumber|holderName|pin|balance
+100001|Geethika Gunnam|1234|50000.00
+100002|Vani Daripelly|5678|28500.00
+100003|Mokshith thanne|9999|102000.00
+100004|Keerthana Varanganti|0000|7500.00
