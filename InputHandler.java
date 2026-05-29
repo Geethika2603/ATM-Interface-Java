@@ -1,16 +1,5 @@
 
 import java.util.Scanner;
-
-/**
- * INPUTHANDLER — Stateless input layer.
- *
- * OOP concepts:
- *   - Static utility class (no state, no instances).
- *   - Encapsulates ALL Scanner usage in one place (single source of truth for I/O).
- *
- * Responsibility: Read and validate all user input safely.
- * No other class creates a Scanner or calls System.in directly.
- */
 public class InputHandler {
 
     // One Scanner for the entire application lifetime.
