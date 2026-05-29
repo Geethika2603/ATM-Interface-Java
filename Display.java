@@ -1,15 +1,5 @@
 
 import java.util.List;
-
-/**
- * DISPLAY — Stateless presentation layer.
- *
- * OOP concepts:
- *   - Static utility class (no instances needed).
- *   - Separation of concerns: ALL output lives here; no other class prints.
- *
- * Responsibility: Format and print everything the user sees.
- */
 public class Display {
 
     private static final String DIVIDER  = "═".repeat(52);
