@@ -1,15 +1,3 @@
-
-/**
- * ATMAPP — Application entry point.
- *
- * Responsibility: Wire dependencies together and start the session.
- * Contains ZERO business logic — that is ATM's job.
- *
- * Dependency order:
- *   Bank is created first (loads data file).
- *   ATM receives Bank via constructor (dependency injection).
- *   ATM.startSession() drives everything from here.
- */
 public class ATMAPP {
 
     public static void main(String[] args) {
