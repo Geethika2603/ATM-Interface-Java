@@ -1,17 +1,6 @@
 
 import java.io.*;
 import java.util.*;
-
-/**
- * BANK — Central account registry and data access layer.
- *
- * OOP concepts:
- *   - Composition: owns Map<String, Account> (has-a).
- *   - Abstraction: callers don't know HOW accounts are stored (JSON file).
- *   - Single Responsibility: manages accounts and persistence only.
- *
- * Responsibility: Load/save accounts, authenticate users, apply transactions.
- */
 public class Bank {
 
     private final String dataFilePath;
