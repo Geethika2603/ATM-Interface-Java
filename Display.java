@@ -1,15 +1,10 @@
 
 import java.util.List;
 public class Display {
-
     private static final String DIVIDER  = "═".repeat(52);
     private static final String THIN_DIV = "─".repeat(52);
     private static final String BANK_NAME = "JAVA NATIONAL BANK";
-
     private Display() { /* utility class — no instantiation */ }
-
-    // ── Banners ───────────────────────────────────────────────────────────────
-
     public static void showWelcomeBanner() {
         System.out.println("\n" + DIVIDER);
         System.out.println("  ██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗");
@@ -35,9 +30,6 @@ public class Display {
     public static void showSessionTimeout() {
         System.out.println("\n⚠  Session ended due to too many failed PIN attempts.");
     }
-
-    // ── Menus ─────────────────────────────────────────────────────────────────
-
     public static void showMainMenu(Account account) {
         System.out.println("\n" + DIVIDER);
         System.out.printf("  Account: %-10s  |  %s%n",
@@ -55,8 +47,6 @@ public class Display {
         System.out.print("  Select an option: ");
     }
 
-    // ── Balance ───────────────────────────────────────────────────────────────
-
     public static void showBalance(Account account) {
         System.out.println("\n" + THIN_DIV);
         System.out.println("  BALANCE ENQUIRY");
@@ -66,9 +56,6 @@ public class Display {
         System.out.printf("  Balance   : ₹ %,.2f%n", account.getBalance());
         System.out.println(THIN_DIV);
     }
-
-    // ── Receipts ──────────────────────────────────────────────────────────────
-
     public static void showDepositReceipt(double amount, double newBalance) {
         System.out.println("\n" + THIN_DIV);
         System.out.println("  ✔  DEPOSIT SUCCESSFUL");
@@ -99,9 +86,6 @@ public class Display {
     public static void showPinChangeSuccess() {
         System.out.println("\n  ✔  PIN changed successfully.");
     }
-
-    // ── Transaction History ───────────────────────────────────────────────────
-
     public static void showHistory(Account account, List<Transaction> transactions) {
         System.out.println("\n" + DIVIDER);
         System.out.printf("  TRANSACTION HISTORY — Account %s%n", account.getAccountNumber());
@@ -118,9 +102,6 @@ public class Display {
         }
         System.out.println(DIVIDER);
     }
-
-    // ── Errors & Prompts ──────────────────────────────────────────────────────
-
     public static void showError(String message) {
         System.out.println("\n  ✘  ERROR: " + message);
     }
