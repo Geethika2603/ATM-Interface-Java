@@ -1,17 +1,11 @@
 
 import java.util.Scanner;
 public class InputHandler {
-
-    // One Scanner for the entire application lifetime.
     private static final Scanner SCANNER = new Scanner(System.in);
 
     private InputHandler() { /* utility class */ }
 
     // ── Integer input ─────────────────────────────────────────────────────────
-
-    /**
-     * Reads a menu selection integer. Returns -1 on bad input (won't crash).
-     */
     public static int readMenuChoice() {
         String line = SCANNER.nextLine().trim();
         try {
