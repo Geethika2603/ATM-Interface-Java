@@ -1,29 +1,16 @@
 
 public class ATM {
-
-    // ── Configuration constants ───────────────────────────────────────────────
     private static final int    MAX_PIN_ATTEMPTS    = 3;
     private static final double MIN_WITHDRAWAL      = 100.0;
     private static final double MAX_WITHDRAWAL      = 20_000.0;
     private static final double WITHDRAWAL_MULTIPLE = 100.0;
-
-    // ── Dependencies (injected via constructor) ───────────────────────────────
     private final Bank bank;
-
-    // ── Session state ─────────────────────────────────────────────────────────
     private Account currentAccount = null;
     private boolean running        = true;
 
     public ATM(Bank bank) {
         this.bank = bank;
     }
-
-    // ── Entry point ───────────────────────────────────────────────────────────
-
-    /**
-     * Main loop: keeps the ATM running until the JVM exits.
-     * Each iteration = one user session (card in → card out).
-     */
     public void startSession() {
         Display.showWelcomeBanner();
 
@@ -35,9 +22,6 @@ public class ATM {
             runMenu();
         }
     }
-
-    // ── Authentication ────────────────────────────────────────────────────────
-
     private boolean authenticateUser() {
         String accountNumber = InputHandler.readAccountNumber();
 
@@ -68,9 +52,6 @@ public class ATM {
         Display.showSessionTimeout();
         return false;
     }
-
-    // ── Main menu loop ────────────────────────────────────────────────────────
-
     private void runMenu() {
         boolean inSession = true;
         while (inSession) {
@@ -94,9 +75,6 @@ public class ATM {
             }
         }
     }
-
-    // ── Operations ────────────────────────────────────────────────────────────
-
     private void doCheckBalance() {
         Display.showBalance(currentAccount);
     }
@@ -112,8 +90,6 @@ public class ATM {
     private void doWithdraw() {
         double amount = InputHandler.readAmount("withdraw");
         if (amount < 0) { Display.showInfo("Withdrawal cancelled."); return; }
-
-        // ── Business rule checks ──────────────────────────────────────────────
         if (amount < MIN_WITHDRAWAL) {
             Display.showError(String.format(
                     "Minimum withdrawal is ₹%.0f.", MIN_WITHDRAWAL));
