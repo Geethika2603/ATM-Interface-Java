@@ -5,8 +5,6 @@ public class Bank {
 
     private final String dataFilePath;
     private final Map<String, Account> accounts = new LinkedHashMap<>();
-
-    // ── Pre-seeded demo accounts ──────────────────────────────────────────────
     private static final String[][] SEED_ACCOUNTS = {
         // { accountNumber, holderName, PIN, initialBalance }
         { "100001", "Geethika Gunnam",  "1234", "50000.00" },
@@ -19,12 +17,6 @@ public class Bank {
         this.dataFilePath = dataFilePath;
         loadAccounts();
     }
-
-    // ── Authentication ────────────────────────────────────────────────────────
-
-    /**
-     * Returns the Account if accountNumber + PIN match, otherwise null.
-     */
     public Account authenticate(String accountNumber, String pin) {
         Account acc = accounts.get(accountNumber);
         if (acc != null && acc.validatePin(pin)) return acc;
@@ -38,8 +30,6 @@ public class Bank {
     public Account getAccount(String accountNumber) {
         return accounts.get(accountNumber);
     }
-
-    // ── Transactions (called by ATM after validation) ─────────────────────────
 
     public void deposit(Account account, double amount) {
         account.credit(amount, "");
@@ -60,15 +50,6 @@ public class Bank {
         return true;
     }
 
-    // ── Persistence ───────────────────────────────────────────────────────────
-
-    /**
-     * Loads accounts from a simple CSV-style flat file.
-     * Seeds demo data if the file doesn't exist yet.
-     *
-     * Format per line:  accountNumber|holderName|pin|balance
-     * Transaction history is intentionally session-only (kept in memory).
-     */
     private void loadAccounts() {
         File f = new File(dataFilePath);
         if (!f.exists()) {
