@@ -1,13 +1,6 @@
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
-/**
- * TRANSACTION — Immutable value object.
- *
- * OOP concepts: Immutability (all fields final), encapsulation (private fields).
- * Responsibility: Represent one completed financial event. Never changes after creation.
- */
 public final class Transaction {
 
     public enum Type {
@@ -37,15 +30,11 @@ public final class Transaction {
         this.note         = note;
         this.timestamp    = LocalDateTime.now();
     }
-
-    // ── Getters ──────────────────────────────────────────────────────────────
-
     public Type   getType()         { return type; }
     public double getAmount()       { return amount; }
     public double getBalanceAfter() { return balanceAfter; }
     public String getNote()         { return note; }
     public String getTimestamp()    { return timestamp.format(FORMATTER); }
-
     @Override
     public String toString() {
         String sign = (type == Type.DEPOSIT || type == Type.TRANSFER_IN) ? "+" : "-";
